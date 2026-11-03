@@ -17,9 +17,11 @@ if (navigator.clipboard) {
     navigator.clipboard.writeText(chave)
       .then(function () {
         avisoPix.textContent = 'Chave copiada! Agora cole no aplicativo do seu banco.';
+        avisoPix.classList.remove('aviso-erro');
       })
       .catch(function () {
         avisoPix.textContent = 'Não foi possível copiar. Selecione a chave e copie à mão.';
+        avisoPix.classList.add('aviso-erro'); // erro em vermelho, não em verde
       });
   });
 }

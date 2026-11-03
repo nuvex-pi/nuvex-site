@@ -599,6 +599,10 @@ main {
   color: var(--verde);
 }
 
+.aviso-erro {
+  color: var(--vermelho);
+}
+
 .resultado {
   font-size: 1.1rem;
   font-weight: bold;
