@@ -1,0 +1,47 @@
+/* Estilo base do site da APAE.
+   Pensado para idosos: letra grande, bom contraste e botões fáceis de tocar. */
+
+/* Variáveis: definidas uma vez e usadas no arquivo todo.
+   Para trocar uma cor, basta mudar aqui. */
+:root {
+  --cor-texto: #1a1a1a;     /* quase preto: contraste alto sobre o branco */
+  --cor-fundo: #ffffff;
+  --cor-destaque: #4a2c7a;  /* TODO: trocar pela cor oficial da APAE e conferir o contraste no Lighthouse */
+  --letra-base: 18px;       /* nunca menos de 16 px em nenhum texto */
+}
+
+/* box-sizing: o tamanho de um elemento passa a incluir a borda e o espaçamento interno,
+   o que torna as larguras mais previsíveis */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--letra-base);
+  line-height: 1.6;          /* espaço entre as linhas facilita a leitura */
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+a {
+  color: var(--cor-destaque);
+}
+
+/* Foco visível: quem navega só pelo teclado (Tab) precisa ver onde está */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+/* Botões com pelo menos 48 px de altura: fáceis de tocar no celular */
+button,
+.botao {
+  min-height: 48px;
+  padding: 12px 20px;
+  font-size: var(--letra-base);
+}
+
+/* TODO: estilos do header, do menu, das seções e do footer */

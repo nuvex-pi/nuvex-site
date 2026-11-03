@@ -1,0 +1,5 @@
+Pasta das imagens do site.
+
+- Só coloque aqui fotos que a APAE autorizou.
+- Fotos de assistidos, principalmente crianças, só com autorização dos responsáveis (LGPD).
+- Toda imagem usada no HTML precisa de texto alternativo (atributo alt).

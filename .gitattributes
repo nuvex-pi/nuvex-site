@@ -1,0 +1,4 @@
+# Finais de linha padronizados (LF) para todos, no Windows e no Linux
+* text=auto eol=lf
+*.png binary
+*.jpg binary

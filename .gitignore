@@ -1,0 +1,12 @@
+# Dependências do Node (são baixadas de novo com npm install)
+node_modules/
+
+# Arquivos de sistema e de editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Variáveis de ambiente e segredos: nunca vão para o repositório
+.env
+.env.*
