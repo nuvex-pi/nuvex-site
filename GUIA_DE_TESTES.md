@@ -12,8 +12,9 @@ Roteiro para testar o site sozinho, no Windows.
 
 | Página | Teste | O que esperar |
 |--------|-------|---------------|
-| Todas | Clique em **A+** e **A-** | A letra aumenta e diminui. Ao trocar de página, o tamanho escolhido continua |
-| Todas | Janela estreita (`Ctrl+Shift+M` no F12) → botão **Menu** | O menu abre e fecha |
+| Todas | Clique em **Letra maior** e **Letra menor** (no pé da barra lateral; no celular, dentro do Menu) | A letra aumenta e diminui. Ao trocar de página, o tamanho escolhido continua |
+| Todas | Janela baixa (menos de 860 px de altura) | A barra lateral rola junto com a página e os botões de letra continuam alcançáveis |
+| Todas | Janela estreita (`Ctrl+Shift+M` no F12) → botão **Menu** | A barra lateral vira uma barra no topo, e o menu abre e fecha |
 | Início e Eventos | Mude `data-arrecadado` de um evento no HTML e recarregue | A barra, o texto e o "Faltam R$ ..." mudam juntos |
 | Eventos | Festa junina (arrecadou mais que a meta) | Barra cheia e verde, "Meta atingida!" |
 | Como ajudar | **Copiar chave Pix** | Aparece "Chave copiada!" e a chave cola no Bloco de Notas |
@@ -33,11 +34,11 @@ Roteiro para testar o site sozinho, no Windows.
 | HTML válido | Cole o código em `validator.w3.org` (opção *Validate by Direct Input*) | Nenhum erro |
 | Teclado | Navegue só com `Tab` e `Enter` | Todo link e botão é alcançado, e o foco aparece |
 | Zoom | `Ctrl` e `+` até 200% | Nada fica sobreposto |
-| Sem JavaScript | `F12` → `Ctrl+Shift+P` → digite *Disable JavaScript* | O site continua legível, com menu aberto, barras de meta e chave Pix. Somem só A+/A-, o simulador e o formulário |
+| Sem JavaScript | `F12` → `Ctrl+Shift+P` → digite *Disable JavaScript* | O site continua legível, com menu aberto, barras de meta e chave Pix. Somem só os botões de letra, o simulador e o formulário |
 
 ## Problemas comuns
 
 - **O CSS não aplicou:** confira o caminho no `<link href="css/estilo.css">` e se o arquivo foi salvo.
 - **O script não roda:** veja o Console; confira o caminho no `<script src="js/...">`. O `principal.js` precisa vir antes dos outros, porque eles usam a função `formatarReais` dele.
 - **Acentos estranhos (ex.: "Ã©"):** o arquivo precisa estar salvo em UTF-8 (no VS Code, canto inferior direito).
-- **A letra ficou enorme e não volta:** clique em A- algumas vezes, ou limpe os dados do site (`F12` → *Application* → *Local storage*).
+- **A letra ficou enorme e não volta:** clique em "Letra menor" algumas vezes, ou limpe os dados do site (`F12` → *Application* → *Local storage*).

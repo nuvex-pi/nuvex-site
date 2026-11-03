@@ -24,7 +24,7 @@ botaoMenu.addEventListener('click', function () {
   botaoMenu.setAttribute('aria-expanded', aberto);
 });
 
-// ---------- Tamanho da letra (A+ e A-) ----------
+// ---------- Tamanho da letra ("Letra maior" e "Letra menor") ----------
 
 const tamanhos = [100, 112.5, 125, 137.5, 150]; // em %, 112.5% = 18px
 const botaoMenos = document.getElementById('diminuir-letra');

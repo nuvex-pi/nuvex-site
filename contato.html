@@ -7,63 +7,86 @@
   <meta name="description" content="Endereço, telefone e WhatsApp da APAE de Estiva Gerbi.">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
-<body>
+<body id="topo">
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="topo" id="topo">
-    <div class="topo-linha">
-      <a class="nome-site" href="index.html">APAE <span>Estiva Gerbi</span></a>
-
-      <!-- Só aparecem se o JavaScript estiver funcionando -->
-      <div class="letra" id="controle-letra" hidden>
-        <button type="button" id="diminuir-letra" aria-label="Diminuir a letra">A-</button>
-        <button type="button" id="aumentar-letra" aria-label="Aumentar a letra">A+</button>
+  <div class="app">
+    <aside class="barra-lateral">
+      <div class="barra-topo">
+        <a class="marca" href="index.html">
+          <span class="marca-simbolo" aria-hidden="true">AE</span>
+          <span class="marca-nome">APAE<small>Estiva Gerbi</small></span>
+        </a>
+        <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden><span class="icone-menu" aria-hidden="true"></span> Menu</button>
       </div>
-      <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden>Menu</button>
+
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <p class="grupo">Conheça</p>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="quem-somos.html">Quem somos</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+        </ul>
+        <p class="grupo">Ajude</p>
+        <ul>
+          <li><a href="como-ajudar.html">Como ajudar</a></li>
+          <li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+        </ul>
+        <p class="grupo">Fale com a gente</p>
+        <ul>
+          <li><a href="contato.html" aria-current="page">Contato</a></li>
+          <li><a href="privacidade.html">Política de privacidade</a></li>
+        </ul>
+
+        <!-- Só aparece se o JavaScript estiver funcionando -->
+        <div class="letra" id="controle-letra" hidden>
+          <p>Tamanho da letra</p>
+          <div>
+            <button type="button" id="diminuir-letra">Letra menor</button>
+            <button type="button" id="aumentar-letra">Letra maior</button>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="area">
+      <main id="conteudo">
+        <h1>Contato</h1>
+        <p class="resumo">Tire dúvidas, combine uma doação de itens ou ofereça ajuda.</p>
+
+        <p class="banner" role="note"><strong>Site em construção.</strong> Eventos, valores, contatos e chave Pix são exemplos até a APAE aprovar os dados oficiais.</p>
+
+        <div class="duas-colunas">
+          <section class="cartao">
+            <h2>Onde estamos</h2>
+            <!-- TODO: trocar pelos dados oficiais, só depois que a APAE autorizar -->
+            <dl class="contatos">
+              <dt>Endereço</dt>
+              <dd>A confirmar com a APAE<br>Estiva Gerbi - SP</dd>
+
+              <dt>Telefone</dt>
+              <dd>A confirmar</dd>
+
+              <dt>Horário de atendimento</dt>
+              <dd>A confirmar</dd>
+            </dl>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=APAE+Estiva+Gerbi" target="_blank" rel="noopener">Ver a APAE no mapa</a> (abre o Google Maps)</p>
+          </section>
+
+          <section class="cartao">
+            <h2>WhatsApp</h2>
+            <p>O jeito mais rápido de falar com a secretaria.</p>
+            <p><a class="botao" href="https://wa.me/" target="_blank" rel="noopener" data-whatsapp>Falar no WhatsApp</a></p>
+          </section>
+        </div>
+      </main>
+
+      <footer class="rodape">
+        <p><strong>APAE de Estiva Gerbi</strong> - Estiva Gerbi - SP</p>
+        <p>Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. <a href="#topo">Voltar ao topo</a></p>
+      </footer>
     </div>
-
-    <nav aria-label="Menu principal">
-      <ul class="menu" id="menu">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="quem-somos.html">Quem somos</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="como-ajudar.html">Como ajudar</a></li>
-        <li><a href="perguntas-frequentes.html">Dúvidas</a></li>
-        <li><a href="contato.html" aria-current="page">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="conteudo">
-    <div class="conteiner secao texto">
-      <h1>Contato</h1>
-
-      <!-- TODO: trocar pelos dados oficiais, só depois que a APAE autorizar -->
-      <dl class="contatos">
-        <dt>Endereço</dt>
-        <dd>A confirmar com a APAE<br>Estiva Gerbi - SP</dd>
-
-        <dt>Telefone</dt>
-        <dd>A confirmar</dd>
-
-        <dt>Horário de atendimento</dt>
-        <dd>A confirmar</dd>
-
-        <dt>WhatsApp</dt>
-        <dd><a class="botao" href="https://wa.me/" target="_blank" rel="noopener" data-whatsapp>Falar no WhatsApp</a></dd>
-      </dl>
-
-      <p><a href="https://www.google.com/maps/search/?api=1&amp;query=APAE+Estiva+Gerbi" target="_blank" rel="noopener">Ver a APAE no mapa</a> (abre o Google Maps)</p>
-    </div>
-  </main>
-
-  <footer class="rodape">
-    <div class="conteiner">
-      <p><strong>APAE de Estiva Gerbi</strong><br>Estiva Gerbi - SP</p>
-      <p><a href="contato.html">Contato</a> | <a href="privacidade.html">Política de privacidade</a> | <a href="#topo">Voltar ao topo</a></p>
-      <p class="pequeno">Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. Eventos, valores e contatos são exemplos até a APAE aprovar os dados oficiais.</p>
-    </div>
-  </footer>
+  </div>
 
   <script src="js/principal.js" defer></script>
 </body>

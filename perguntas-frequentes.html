@@ -7,82 +7,93 @@
   <meta name="description" content="Respostas para as dúvidas mais comuns sobre doações e voluntariado na APAE de Estiva Gerbi.">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
-<body>
+<body id="topo">
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="topo" id="topo">
-    <div class="topo-linha">
-      <a class="nome-site" href="index.html">APAE <span>Estiva Gerbi</span></a>
-
-      <!-- Só aparecem se o JavaScript estiver funcionando -->
-      <div class="letra" id="controle-letra" hidden>
-        <button type="button" id="diminuir-letra" aria-label="Diminuir a letra">A-</button>
-        <button type="button" id="aumentar-letra" aria-label="Aumentar a letra">A+</button>
+  <div class="app">
+    <aside class="barra-lateral">
+      <div class="barra-topo">
+        <a class="marca" href="index.html">
+          <span class="marca-simbolo" aria-hidden="true">AE</span>
+          <span class="marca-nome">APAE<small>Estiva Gerbi</small></span>
+        </a>
+        <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden><span class="icone-menu" aria-hidden="true"></span> Menu</button>
       </div>
-      <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden>Menu</button>
+
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <p class="grupo">Conheça</p>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="quem-somos.html">Quem somos</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+        </ul>
+        <p class="grupo">Ajude</p>
+        <ul>
+          <li><a href="como-ajudar.html">Como ajudar</a></li>
+          <li><a href="perguntas-frequentes.html" aria-current="page">Perguntas frequentes</a></li>
+        </ul>
+        <p class="grupo">Fale com a gente</p>
+        <ul>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="privacidade.html">Política de privacidade</a></li>
+        </ul>
+
+        <!-- Só aparece se o JavaScript estiver funcionando -->
+        <div class="letra" id="controle-letra" hidden>
+          <p>Tamanho da letra</p>
+          <div>
+            <button type="button" id="diminuir-letra">Letra menor</button>
+            <button type="button" id="aumentar-letra">Letra maior</button>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="area">
+      <main id="conteudo">
+        <h1>Perguntas frequentes</h1>
+        <p class="resumo">Toque na pergunta para ver a resposta.</p>
+
+        <p class="banner" role="note"><strong>Site em construção.</strong> Eventos, valores, contatos e chave Pix são exemplos até a APAE aprovar os dados oficiais.</p>
+
+        <div class="cartao lista-perguntas">
+          <details>
+            <summary>Como posso doar?</summary>
+            <p>Por Pix, com a chave da página <a href="como-ajudar.html#pix">Como ajudar</a>. Você também pode participar dos eventos ou doar itens para o bazar.</p>
+          </details>
+          <details>
+            <summary>Preciso me cadastrar para doar?</summary>
+            <p>Não. O Pix é feito direto no aplicativo do seu banco, sem cadastro neste site.</p>
+          </details>
+          <details>
+            <summary>Como sei que o Pix vai para a APAE?</summary>
+            <p>Antes de confirmar, veja o nome que aparece no aplicativo do banco. Ele precisa ser o da APAE de Estiva Gerbi. Se aparecer outro nome, cancele e fale com a gente.</p>
+          </details>
+          <details>
+            <summary>Posso descontar a doação do Imposto de Renda?</summary>
+            <p>Em geral, a doação feita direto para a APAE não é dedutível. Veja a explicação em <a href="como-ajudar.html#imposto-de-renda">Como ajudar</a>.</p>
+          </details>
+          <details>
+            <summary>Como faço para ser voluntário?</summary>
+            <p>Preencha o formulário da página <a href="como-ajudar.html#voluntario">Como ajudar</a>. Ele abre o WhatsApp com a mensagem pronta.</p>
+          </details>
+          <details>
+            <summary>Posso doar roupas e objetos?</summary>
+            <p>Pode. Fale antes com a secretaria para saber o que está faltando.</p>
+          </details>
+          <details>
+            <summary>Este site guarda os meus dados?</summary>
+            <p>Não. Veja a <a href="privacidade.html">Política de privacidade</a>.</p>
+          </details>
+        </div>
+      </main>
+
+      <footer class="rodape">
+        <p><strong>APAE de Estiva Gerbi</strong> - Estiva Gerbi - SP</p>
+        <p>Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. <a href="#topo">Voltar ao topo</a></p>
+      </footer>
     </div>
-
-    <nav aria-label="Menu principal">
-      <ul class="menu" id="menu">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="quem-somos.html">Quem somos</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="como-ajudar.html">Como ajudar</a></li>
-        <li><a href="perguntas-frequentes.html" aria-current="page">Dúvidas</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="conteudo">
-    <div class="conteiner secao texto">
-      <h1>Perguntas frequentes</h1>
-      <p>Toque na pergunta para ver a resposta.</p>
-
-      <details>
-        <summary>Como posso doar?</summary>
-        <p>Por Pix, com a chave da página <a href="como-ajudar.html#pix">Como ajudar</a>. Você também pode participar dos eventos ou doar itens para o bazar.</p>
-      </details>
-
-      <details>
-        <summary>Preciso me cadastrar para doar?</summary>
-        <p>Não. O Pix é feito direto no aplicativo do seu banco, sem cadastro neste site.</p>
-      </details>
-
-      <details>
-        <summary>Como sei que o Pix vai para a APAE?</summary>
-        <p>Antes de confirmar, veja o nome que aparece no aplicativo do banco. Ele precisa ser o da APAE de Estiva Gerbi. Se aparecer outro nome, cancele e fale com a gente.</p>
-      </details>
-
-      <details>
-        <summary>Posso descontar a doação do Imposto de Renda?</summary>
-        <p>Em geral, a doação feita direto para a APAE não é dedutível. Veja a explicação em <a href="como-ajudar.html#imposto-de-renda">Como ajudar</a>.</p>
-      </details>
-
-      <details>
-        <summary>Como faço para ser voluntário?</summary>
-        <p>Preencha o formulário da página <a href="como-ajudar.html#voluntario">Como ajudar</a>. Ele abre o WhatsApp com a mensagem pronta.</p>
-      </details>
-
-      <details>
-        <summary>Posso doar roupas e objetos?</summary>
-        <p>Pode. Fale antes com a secretaria para saber o que está faltando.</p>
-      </details>
-
-      <details>
-        <summary>Este site guarda os meus dados?</summary>
-        <p>Não. Veja a <a href="privacidade.html">Política de privacidade</a>.</p>
-      </details>
-    </div>
-  </main>
-
-  <footer class="rodape">
-    <div class="conteiner">
-      <p><strong>APAE de Estiva Gerbi</strong><br>Estiva Gerbi - SP</p>
-      <p><a href="contato.html">Contato</a> | <a href="privacidade.html">Política de privacidade</a> | <a href="#topo">Voltar ao topo</a></p>
-      <p class="pequeno">Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. Eventos, valores e contatos são exemplos até a APAE aprovar os dados oficiais.</p>
-    </div>
-  </footer>
+  </div>
 
   <script src="js/principal.js" defer></script>
 </body>

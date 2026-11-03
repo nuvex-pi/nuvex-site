@@ -7,78 +7,112 @@
   <meta name="description" content="APAE de Estiva Gerbi: conheça o nosso trabalho, os próximos eventos e como ajudar.">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
-<body>
+<body id="topo">
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="topo" id="topo">
-    <div class="topo-linha">
-      <a class="nome-site" href="index.html">APAE <span>Estiva Gerbi</span></a>
-
-      <!-- Só aparecem se o JavaScript estiver funcionando -->
-      <div class="letra" id="controle-letra" hidden>
-        <button type="button" id="diminuir-letra" aria-label="Diminuir a letra">A-</button>
-        <button type="button" id="aumentar-letra" aria-label="Aumentar a letra">A+</button>
+  <div class="app">
+    <aside class="barra-lateral">
+      <div class="barra-topo">
+        <a class="marca" href="index.html">
+          <span class="marca-simbolo" aria-hidden="true">AE</span>
+          <span class="marca-nome">APAE<small>Estiva Gerbi</small></span>
+        </a>
+        <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden><span class="icone-menu" aria-hidden="true"></span> Menu</button>
       </div>
-      <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden>Menu</button>
-    </div>
 
-    <nav aria-label="Menu principal">
-      <ul class="menu" id="menu">
-        <li><a href="index.html" aria-current="page">Início</a></li>
-        <li><a href="quem-somos.html">Quem somos</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="como-ajudar.html">Como ajudar</a></li>
-        <li><a href="perguntas-frequentes.html">Dúvidas</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <p class="grupo">Conheça</p>
+        <ul>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="quem-somos.html">Quem somos</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+        </ul>
+        <p class="grupo">Ajude</p>
+        <ul>
+          <li><a href="como-ajudar.html">Como ajudar</a></li>
+          <li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+        </ul>
+        <p class="grupo">Fale com a gente</p>
+        <ul>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="privacidade.html">Política de privacidade</a></li>
+        </ul>
 
-  <main id="conteudo">
-    <section class="abertura">
-      <div class="conteiner">
-        <h1>APAE de Estiva Gerbi</h1>
-        <p class="chamada">Atendemos pessoas com deficiência intelectual e múltipla e apoiamos as suas famílias. Esse trabalho só continua com a ajuda da comunidade.</p>
-        <p class="botoes">
-          <a class="botao" href="como-ajudar.html">Quero ajudar</a>
-          <a class="botao botao-claro" href="quem-somos.html">Conheça a APAE</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="conteiner secao">
-      <h2>Próximo evento</h2>
-      <article class="evento">
-        <h3>Bazar beneficente</h3>
-        <p class="evento-data">Sábado, 21/11/2026, das 9h às 15h</p>
-        <p>Na sede da APAE. Roupas, calçados e objetos doados pela comunidade, com preços a partir de R$ 2,00.</p>
-        <div class="meta" data-arrecadado="325000" data-meta="500000">
-          <p class="meta-titulo">Meta de arrecadação</p>
-          <progress value="3250" max="5000" aria-label="Arrecadação: Bazar beneficente">65%</progress>
-          <p class="meta-texto">R$ 3.250,00 de R$ 5.000,00 (65%)</p>
-          <p class="meta-falta">Faltam R$ 1.750,00 para a meta.</p>
+        <!-- Só aparece se o JavaScript estiver funcionando -->
+        <div class="letra" id="controle-letra" hidden>
+          <p>Tamanho da letra</p>
+          <div>
+            <button type="button" id="diminuir-letra">Letra menor</button>
+            <button type="button" id="aumentar-letra">Letra maior</button>
+          </div>
         </div>
-        <p><a href="eventos.html">Ver todos os eventos</a></p>
-      </article>
-    </section>
+      </nav>
+    </aside>
 
-    <section class="conteiner secao">
-      <h2>Formas de ajudar</h2>
-      <ul class="lista-ajuda">
-        <li><strong>Doe por Pix.</strong> Qualquer valor ajuda a manter os atendimentos. <a href="como-ajudar.html#pix">Ver a chave Pix</a></li>
-        <li><strong>Seja voluntário.</strong> Ajude nos eventos, no bazar ou na divulgação. <a href="como-ajudar.html#voluntario">Quero ser voluntário</a></li>
-        <li><strong>Venha aos eventos.</strong> Bazares, jantares e festas ajudam a pagar as contas da APAE. <a href="eventos.html">Ver a agenda</a></li>
-      </ul>
-    </section>
-  </main>
+    <div class="area">
+      <main id="conteudo">
+        <h1>APAE de Estiva Gerbi</h1>
+        <p class="resumo">Atendemos pessoas com deficiência intelectual e múltipla e apoiamos as suas famílias. Esse trabalho só continua com a ajuda da comunidade.</p>
 
-  <footer class="rodape">
-    <div class="conteiner">
-      <p><strong>APAE de Estiva Gerbi</strong><br>Estiva Gerbi - SP</p>
-      <p><a href="contato.html">Contato</a> | <a href="privacidade.html">Política de privacidade</a> | <a href="#topo">Voltar ao topo</a></p>
-      <p class="pequeno">Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. Eventos, valores e contatos são exemplos até a APAE aprovar os dados oficiais.</p>
+        <p class="banner" role="note"><strong>Site em construção.</strong> Eventos, valores, contatos e chave Pix são exemplos até a APAE aprovar os dados oficiais.</p>
+
+        <section>
+          <h2>O que você quer fazer?</h2>
+          <!-- O cartão inteiro é o link: área grande para tocar no celular -->
+          <ul class="atalhos">
+            <li>
+              <a class="atalho" href="como-ajudar.html#pix">
+                <strong>Doar por Pix</strong>
+                <span>Veja a chave e doe pelo aplicativo do seu banco.</span>
+              </a>
+            </li>
+            <li>
+              <a class="atalho" href="eventos.html">
+                <strong>Ver os eventos</strong>
+                <span>Bazares, jantares e festas da APAE.</span>
+              </a>
+            </li>
+            <li>
+              <a class="atalho" href="como-ajudar.html#voluntario">
+                <strong>Ser voluntário</strong>
+                <span>Ajude nos eventos, no bazar ou na divulgação.</span>
+              </a>
+            </li>
+            <li>
+              <a class="atalho" href="contato.html">
+                <strong>Falar com a APAE</strong>
+                <span>Endereço, telefone e WhatsApp.</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Próximo evento</h2>
+          <article class="cartao">
+            <div class="cartao-cabecalho">
+              <h3>Bazar beneficente</h3>
+              <span class="selo ">Recebendo doações</span>
+            </div>
+            <p class="evento-data">Sábado, 21/11/2026, das 9h às 15h</p>
+            <p>Na sede da APAE. Roupas, calçados e objetos doados pela comunidade, com preços a partir de R$ 2,00.</p>
+            <div class="meta" data-arrecadado="325000" data-meta="500000">
+              <p class="meta-titulo">Meta de arrecadação</p>
+              <progress value="3250" max="5000" aria-label="Arrecadação: Bazar beneficente">65%</progress>
+              <p class="meta-texto">R$ 3.250,00 de R$ 5.000,00 (65%)</p>
+              <p class="meta-falta">Faltam R$ 1.750,00 para a meta.</p>
+            </div>
+          </article>
+          <p><a href="eventos.html">Ver todos os eventos</a></p>
+        </section>
+      </main>
+
+      <footer class="rodape">
+        <p><strong>APAE de Estiva Gerbi</strong> - Estiva Gerbi - SP</p>
+        <p>Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. <a href="#topo">Voltar ao topo</a></p>
+      </footer>
     </div>
-  </footer>
+  </div>
 
   <script src="js/principal.js" defer></script>
   <script src="js/eventos.js" defer></script>
