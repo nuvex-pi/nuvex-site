@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos - APAE Estiva Gerbi</title>
+  <meta name="description" content="Agenda de eventos beneficentes da APAE de Estiva Gerbi e metas de arrecadação.">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo" id="topo">
+    <div class="topo-linha">
+      <a class="nome-site" href="index.html">APAE <span>Estiva Gerbi</span></a>
+
+      <!-- Só aparecem se o JavaScript estiver funcionando -->
+      <div class="letra" id="controle-letra" hidden>
+        <button type="button" id="diminuir-letra" aria-label="Diminuir a letra">A-</button>
+        <button type="button" id="aumentar-letra" aria-label="Aumentar a letra">A+</button>
+      </div>
+      <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden>Menu</button>
+    </div>
+
+    <nav aria-label="Menu principal">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="quem-somos.html">Quem somos</a></li>
+        <li><a href="eventos.html" aria-current="page">Eventos</a></li>
+        <li><a href="como-ajudar.html">Como ajudar</a></li>
+        <li><a href="perguntas-frequentes.html">Dúvidas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <div class="conteiner secao">
+      <h1>Eventos</h1>
+      <p>Os eventos são uma das principais fontes de renda da APAE. Cada um tem uma meta, e a barra mostra quanto já foi arrecadado.</p>
+
+      <h2>Próximos eventos</h2>
+
+      <article class="evento">
+        <h3>Bazar beneficente</h3>
+        <p class="evento-data">Sábado, 21/11/2026, das 9h às 15h</p>
+        <p>Na sede da APAE. Roupas, calçados e objetos doados pela comunidade, com preços a partir de R$ 2,00.</p>
+        <div class="meta" data-arrecadado="325000" data-meta="500000">
+          <p class="meta-titulo">Meta de arrecadação</p>
+          <progress value="3250" max="5000" aria-label="Arrecadação: Bazar beneficente">65%</progress>
+          <p class="meta-texto">R$ 3.250,00 de R$ 5.000,00 (65%)</p>
+          <p class="meta-falta">Faltam R$ 1.750,00 para a meta.</p>
+        </div>
+      </article>
+
+      <article class="evento">
+        <h3>Jantar beneficente</h3>
+        <p class="evento-data">Sábado, 05/12/2026, às 19h30</p>
+        <p>Local a confirmar. Os convites serão vendidos na secretaria da APAE.</p>
+        <div class="meta" data-arrecadado="420000" data-meta="1000000">
+          <p class="meta-titulo">Meta de arrecadação</p>
+          <progress value="4200" max="10000" aria-label="Arrecadação: Jantar beneficente">42%</progress>
+          <p class="meta-texto">R$ 4.200,00 de R$ 10.000,00 (42%)</p>
+          <p class="meta-falta">Faltam R$ 5.800,00 para a meta.</p>
+        </div>
+      </article>
+
+      <article class="evento">
+        <h3>Festa de Natal dos assistidos</h3>
+        <p class="evento-data">Sábado, 19/12/2026, das 14h às 18h</p>
+        <p>A arrecadação vai para os presentes e o lanche da festa.</p>
+        <div class="meta" data-arrecadado="60000" data-meta="300000">
+          <p class="meta-titulo">Meta de arrecadação</p>
+          <progress value="600" max="3000" aria-label="Arrecadação: Festa de Natal">20%</progress>
+          <p class="meta-texto">R$ 600,00 de R$ 3.000,00 (20%)</p>
+          <p class="meta-falta">Faltam R$ 2.400,00 para a meta.</p>
+        </div>
+      </article>
+
+      <h2>Eventos que já aconteceram</h2>
+
+      <article class="evento">
+        <h3>Festa junina</h3>
+        <p class="evento-data">Sábado, 27/06/2026</p>
+        <div class="meta" data-arrecadado="840000" data-meta="800000">
+          <p class="meta-titulo">Meta de arrecadação</p>
+          <progress value="8000" max="8000" aria-label="Arrecadação: Festa junina">105%</progress>
+          <p class="meta-texto">R$ 8.400,00 de R$ 8.000,00 (105%)</p>
+          <p class="meta-falta">Meta atingida! Obrigado a todos que ajudaram.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="conteiner">
+      <p><strong>APAE de Estiva Gerbi</strong><br>Estiva Gerbi - SP</p>
+      <p><a href="contato.html">Contato</a> | <a href="privacidade.html">Política de privacidade</a> | <a href="#topo">Voltar ao topo</a></p>
+      <p class="pequeno">Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. Eventos, valores e contatos são exemplos até a APAE aprovar os dados oficiais.</p>
+    </div>
+  </footer>
+
+  <script src="js/principal.js" defer></script>
+  <script src="js/eventos.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como ajudar - APAE Estiva Gerbi</title>
+  <meta name="description" content="Doe por Pix, seja voluntário ou doe itens para a APAE de Estiva Gerbi.">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo" id="topo">
+    <div class="topo-linha">
+      <a class="nome-site" href="index.html">APAE <span>Estiva Gerbi</span></a>
+
+      <!-- Só aparecem se o JavaScript estiver funcionando -->
+      <div class="letra" id="controle-letra" hidden>
+        <button type="button" id="diminuir-letra" aria-label="Diminuir a letra">A-</button>
+        <button type="button" id="aumentar-letra" aria-label="Aumentar a letra">A+</button>
+      </div>
+      <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden>Menu</button>
+    </div>
+
+    <nav aria-label="Menu principal">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="quem-somos.html">Quem somos</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="como-ajudar.html" aria-current="page">Como ajudar</a></li>
+        <li><a href="perguntas-frequentes.html">Dúvidas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <div class="conteiner secao texto">
+      <h1>Como ajudar</h1>
+
+      <section id="pix">
+        <h2>Doe por Pix</h2>
+        <!-- ATENÇÃO: colocar aqui só a chave oficial, passada pela APAE.
+             Qualquer troca da chave deve passar por revisão de outra pessoa do grupo (Pull Request). -->
+        <div class="caixa-pix">
+          <p>Chave Pix (aleatória):</p>
+          <p><code class="chave" id="chave-pix">00000000-0000-0000-0000-000000000000</code></p>
+          <button type="button" class="botao" id="copiar-pix" hidden>Copiar chave Pix</button>
+          <p class="aviso" id="aviso-pix" role="status"></p>
+        </div>
+        <ol>
+          <li>Abra o aplicativo do seu banco e escolha a opção Pix.</li>
+          <li>Cole ou digite a chave.</li>
+          <li>Confira se o nome que aparece é o da APAE de Estiva Gerbi. Se for outro nome, não confirme.</li>
+          <li>Digite o valor e confirme.</li>
+        </ol>
+      </section>
+
+      <section id="simulador" hidden>
+        <h2>Quanto a sua doação ajuda?</h2>
+        <p>Veja quanto uma doação por mês soma no fim de um ano.</p>
+        <form id="form-simulador" class="formulario" novalidate>
+          <div class="campo">
+            <label for="valor-mensal">Valor por mês (R$)</label>
+            <input type="text" id="valor-mensal" inputmode="decimal" placeholder="Ex.: 20,00" aria-describedby="erro-valor">
+            <p class="erro" id="erro-valor"></p>
+          </div>
+          <button type="submit" class="botao">Calcular</button>
+        </form>
+        <p class="resultado" id="resultado-simulador" role="status"></p>
+      </section>
+
+      <section id="voluntario">
+        <h2>Seja voluntário</h2>
+        <p>Preencha o formulário e toque em "Enviar pelo WhatsApp". O WhatsApp abre com a mensagem pronta, e você decide se quer enviar.</p>
+        <p class="nota">Este site não guarda nem envia os seus dados. Também não pedimos o seu telefone: a APAE vai ver o seu número quando você mandar a mensagem.</p>
+
+        <form id="form-voluntario" class="formulario" novalidate hidden>
+          <div class="campo">
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" autocomplete="name" maxlength="80" aria-describedby="erro-nome">
+            <p class="erro" id="erro-nome"></p>
+          </div>
+
+          <div class="campo">
+            <label for="area">Como você quer ajudar?</label>
+            <select id="area" aria-describedby="erro-area">
+              <option value="">Escolha uma opção</option>
+              <option>Nos eventos</option>
+              <option>No bazar</option>
+              <option>Na divulgação</option>
+              <option>De outra forma</option>
+            </select>
+            <p class="erro" id="erro-area"></p>
+          </div>
+
+          <fieldset class="campo">
+            <legend>Quando você pode ajudar?</legend>
+            <label class="opcao"><input type="checkbox" name="periodo" value="manhã"> Manhã</label>
+            <label class="opcao"><input type="checkbox" name="periodo" value="tarde"> Tarde</label>
+            <label class="opcao"><input type="checkbox" name="periodo" value="noite"> Noite</label>
+            <label class="opcao"><input type="checkbox" name="periodo" value="fins de semana"> Fins de semana</label>
+            <p class="erro" id="erro-periodo"></p>
+          </fieldset>
+
+          <div class="campo">
+            <label for="mensagem">Quer contar mais alguma coisa? (opcional)</label>
+            <textarea id="mensagem" rows="4" maxlength="300"></textarea>
+          </div>
+
+          <button type="submit" class="botao">Enviar pelo WhatsApp</button>
+        </form>
+
+        <p>Prefere conversar direto? <a href="https://wa.me/" target="_blank" rel="noopener" data-whatsapp>Falar com a APAE no WhatsApp</a></p>
+      </section>
+
+      <section id="itens">
+        <h2>Doe roupas, alimentos e objetos</h2>
+        <p>As doações de itens vão para o bazar e para o dia a dia da APAE. Antes de levar, fale com a secretaria para saber o que está faltando.</p>
+      </section>
+
+      <section id="imposto-de-renda">
+        <h2>Imposto de Renda</h2>
+        <p>Quem faz a declaração completa pode destinar parte do imposto a fundos públicos, como o Fundo dos Direitos da Criança e do Adolescente e o Fundo do Idoso. Já a doação feita direto para a APAE, em geral, não pode ser descontada do imposto. Na dúvida, consulte um contador ou a secretaria da APAE.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="conteiner">
+      <p><strong>APAE de Estiva Gerbi</strong><br>Estiva Gerbi - SP</p>
+      <p><a href="contato.html">Contato</a> | <a href="privacidade.html">Política de privacidade</a> | <a href="#topo">Voltar ao topo</a></p>
+      <p class="pequeno">Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. Eventos, valores e contatos são exemplos até a APAE aprovar os dados oficiais.</p>
+    </div>
+  </footer>
+
+  <script src="js/principal.js" defer></script>
+  <script src="js/doacao.js" defer></script>
+  <script src="js/voluntario.js" defer></script>
+</body>
+</html>

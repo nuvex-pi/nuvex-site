@@ -1,47 +1,517 @@
-/* Estilo base do site da APAE.
-   Pensado para idosos: letra grande, bom contraste e botões fáceis de tocar. */
+/* Estilo do site da APAE.
+   Público com muitos idosos: letra grande, bom contraste e botões fáceis de tocar. */
 
-/* Variáveis: definidas uma vez e usadas no arquivo todo.
-   Para trocar uma cor, basta mudar aqui. */
 :root {
-  --cor-texto: #1a1a1a;     /* quase preto: contraste alto sobre o branco */
-  --cor-fundo: #ffffff;
-  --cor-destaque: #4a2c7a;  /* TODO: trocar pela cor oficial da APAE e conferir o contraste no Lighthouse */
-  --letra-base: 18px;       /* nunca menos de 16 px em nenhum texto */
+  --texto: #222;
+  --texto-suave: #555;
+  --fundo: #fff;
+  --fundo-claro: #eef3f9;
+  --azul: #1f4e8c;
+  --azul-escuro: #163a69;
+  --amarelo: #f2c230;
+  --verde: #2e7d32;
+  --vermelho: #b3261e;
+  --borda: #c9d3e0;
 }
 
-/* box-sizing: o tamanho de um elemento passa a incluir a borda e o espaçamento interno,
-   o que torna as larguras mais previsíveis */
+/* Sem isso, display: flex/block do CSS ganharia do atributo hidden */
+[hidden] {
+  display: none !important;
+}
+
 * {
   box-sizing: border-box;
+}
+
+/* 112,5% = 18px. Os botões A+ e A- mudam esse valor e tudo em rem acompanha */
+html {
+  font-size: 112.5%;
 }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: var(--letra-base);
-  line-height: 1.6;          /* espaço entre as linhas facilita a leitura */
-  color: var(--cor-texto);
-  background: var(--cor-fundo);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+  color: var(--azul-escuro);
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem;
 }
 
 a {
-  color: var(--cor-destaque);
+  color: var(--azul);
 }
 
-/* Foco visível: quem navega só pelo teclado (Tab) precisa ver onde está */
+a:hover {
+  color: var(--azul-escuro);
+}
+
+/* Contorno para quem navega pelo teclado (Tab) */
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--cor-destaque);
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--azul);
   outline-offset: 2px;
 }
 
-/* Botões com pelo menos 48 px de altura: fáceis de tocar no celular */
-button,
-.botao {
-  min-height: 48px;
-  padding: 12px 20px;
-  font-size: var(--letra-base);
+.conteiner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* TODO: estilos do header, do menu, das seções e do footer */
+.secao {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Deixa o texto corrido numa largura confortável de ler */
+.texto {
+  max-width: 760px;
+}
+
+/* Link "Pular para o conteúdo": fica escondido até receber o foco do teclado */
+.pular {
+  position: absolute;
+  left: -9999px;
+}
+
+.pular:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--fundo);
+}
+
+/* ---------- Topo e menu ---------- */
+
+.topo {
+  background: var(--azul-escuro);
+  border-bottom: 5px solid var(--amarelo);
+}
+
+.topo-linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+
+.nome-site {
+  margin-right: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nome-site span {
+  font-weight: normal;
+}
+
+.nome-site:hover {
+  color: #fff;
+}
+
+.letra {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.letra button,
+.botao-menu {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0.25rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.letra button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.topo button:focus-visible,
+.topo a:focus-visible {
+  outline-color: var(--amarelo);
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem 0.5rem;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.menu a:hover {
+  border-bottom-color: #fff;
+}
+
+.menu a[aria-current="page"] {
+  border-bottom-color: var(--amarelo);
+}
+
+/* No celular o menu vira uma lista que abre no botão "Menu".
+   A classe .js só existe se o JavaScript rodou; sem JS o menu fica sempre aberto. */
+@media (max-width: 760px) {
+  /* nome numa linha; A-, A+ e Menu na linha de baixo */
+  .nome-site {
+    flex-basis: 100%;
+  }
+
+  .botao-menu {
+    margin-left: auto;
+  }
+
+  .js .menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .js .menu.aberto {
+    display: flex;
+  }
+}
+
+@media (min-width: 761px) {
+  .botao-menu {
+    display: none !important;
+  }
+}
+
+/* ---------- Página inicial ---------- */
+
+.abertura {
+  padding: 2.5rem 0;
+  background: var(--fundo-claro);
+}
+
+.chamada {
+  max-width: 640px;
+  font-size: 1.15rem;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lista-ajuda {
+  padding-left: 1.25rem;
+}
+
+.lista-ajuda li {
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Botões ---------- */
+
+.botao {
+  display: inline-block;
+  min-height: 48px;
+  padding: 0.6rem 1.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: var(--azul);
+  border: 2px solid var(--azul);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  color: #fff;
+  background: var(--azul-escuro);
+}
+
+.botao-claro {
+  color: var(--azul);
+  background: #fff;
+}
+
+.botao-claro:hover {
+  color: var(--azul-escuro);
+  background: #fff;
+}
+
+/* ---------- Eventos e barra de meta ---------- */
+
+.evento {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--borda);
+  border-left: 6px solid var(--azul);
+}
+
+.evento p {
+  margin: 0.4rem 0;
+}
+
+.evento-data {
+  font-weight: bold;
+}
+
+.meta {
+  margin: 1rem 0 0.5rem;
+  max-width: 560px;
+}
+
+.meta p {
+  margin: 0.2rem 0;
+}
+
+.meta-titulo {
+  font-weight: bold;
+}
+
+.meta progress {
+  width: 100%;
+  height: 1.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid var(--azul);
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* A barra precisa de regras separadas para Chrome/Edge (webkit) e Firefox (moz) */
+.meta progress::-webkit-progress-bar {
+  background: #fff;
+}
+
+.meta progress::-webkit-progress-value {
+  background: var(--azul);
+}
+
+.meta progress::-moz-progress-bar {
+  background: var(--azul);
+}
+
+.meta-atingida progress {
+  border-color: var(--verde);
+}
+
+.meta-atingida progress::-webkit-progress-value {
+  background: var(--verde);
+}
+
+.meta-atingida progress::-moz-progress-bar {
+  background: var(--verde);
+}
+
+.meta-falta {
+  color: var(--texto-suave);
+}
+
+.meta-atingida .meta-falta {
+  font-weight: bold;
+  color: var(--verde);
+}
+
+/* ---------- Como ajudar ---------- */
+
+.caixa-pix {
+  padding: 1rem 1.25rem;
+  background: var(--fundo-claro);
+  border-radius: 6px;
+}
+
+.caixa-pix p {
+  margin: 0.4rem 0;
+}
+
+.chave {
+  display: inline-block;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid var(--borda);
+  word-break: break-all;
+}
+
+.aviso {
+  min-height: 1.6em;
+  font-weight: bold;
+  color: var(--verde);
+}
+
+.resultado {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.nota {
+  color: var(--texto-suave);
+}
+
+.em-breve {
+  padding: 0.75rem 1rem;
+  color: var(--texto-suave);
+  background: var(--fundo-claro);
+  border-left: 4px solid var(--borda);
+}
+
+/* ---------- Formulários ---------- */
+
+.formulario {
+  display: grid;
+  gap: 1rem;
+  max-width: 520px;
+  margin-bottom: 1rem;
+}
+
+.campo label,
+.campo legend {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+  background: #fff;
+  border: 2px solid #767676;
+  border-radius: 6px;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0.5rem 1rem 0.75rem;
+  border: 2px solid var(--borda);
+  border-radius: 6px;
+}
+
+.campo .opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 40px;
+  font-weight: normal;
+}
+
+.opcao input {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+[aria-invalid="true"] {
+  border-color: var(--vermelho);
+}
+
+.erro {
+  margin: 0.25rem 0 0;
+  font-weight: bold;
+  color: var(--vermelho);
+}
+
+.erro:empty {
+  display: none;
+}
+
+/* ---------- Perguntas frequentes ---------- */
+
+details {
+  margin-bottom: 0.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+}
+
+summary {
+  padding: 0.75rem 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+details[open] summary {
+  color: var(--azul-escuro);
+}
+
+/* ---------- Contato ---------- */
+
+.contatos dt {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.contatos dd {
+  margin: 0;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+  color: #fff;
+  background: var(--azul-escuro);
+}
+
+.rodape a {
+  color: #fff;
+}
+
+.rodape a:focus-visible {
+  outline-color: var(--amarelo);
+}
+
+.pequeno {
+  font-size: 0.9rem;
+}

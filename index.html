@@ -1,69 +1,86 @@
 <!DOCTYPE html>
-<!-- lang="pt-BR": diz ao navegador e ao leitor de tela que o texto está em português -->
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Faz o site se ajustar à largura do celular, em vez de aparecer "encolhido" -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>APAE Estiva Gerbi</title>
-  <meta name="description" content="Conheça a APAE de Estiva Gerbi, nossos eventos e como ajudar.">
+  <meta name="description" content="APAE de Estiva Gerbi: conheça o nosso trabalho, os próximos eventos e como ajudar.">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-  <!-- header: topo do site, igual em todas as páginas -->
-  <header>
-    <!-- TODO: logo da APAE (só depois que a APAE autorizar o uso). Toda imagem precisa de alt. -->
-    <p class="nome-site">APAE Estiva Gerbi</p>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-    <!-- nav: menu principal. aria-label diz ao leitor de tela que menu é este -->
+  <header class="topo" id="topo">
+    <div class="topo-linha">
+      <a class="nome-site" href="index.html">APAE <span>Estiva Gerbi</span></a>
+
+      <!-- Só aparecem se o JavaScript estiver funcionando -->
+      <div class="letra" id="controle-letra" hidden>
+        <button type="button" id="diminuir-letra" aria-label="Diminuir a letra">A-</button>
+        <button type="button" id="aumentar-letra" aria-label="Aumentar a letra">A+</button>
+      </div>
+      <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu" hidden>Menu</button>
+    </div>
+
     <nav aria-label="Menu principal">
-      <ul>
-        <li><a href="index.html">Início</a></li>
+      <ul class="menu" id="menu">
+        <li><a href="index.html" aria-current="page">Início</a></li>
         <li><a href="quem-somos.html">Quem somos</a></li>
         <li><a href="eventos.html">Eventos</a></li>
         <li><a href="como-ajudar.html">Como ajudar</a></li>
-        <li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+        <li><a href="perguntas-frequentes.html">Dúvidas</a></li>
         <li><a href="contato.html">Contato</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- main: o conteúdo principal da página (só pode existir um por página) -->
-  <main>
-    <!-- h1: o título principal. Só um por página; depois vêm h2, h3, em ordem -->
-    <h1>TODO: título da página inicial</h1>
-
-    <section>
-      <h2>TODO: apresentação curta da APAE</h2>
-      <p>TODO: texto provisório até a APAE mandar o oficial.</p>
+  <main id="conteudo">
+    <section class="abertura">
+      <div class="conteiner">
+        <h1>APAE de Estiva Gerbi</h1>
+        <p class="chamada">Atendemos pessoas com deficiência intelectual e múltipla e apoiamos as suas famílias. Esse trabalho só continua com a ajuda da comunidade.</p>
+        <p class="botoes">
+          <a class="botao" href="como-ajudar.html">Quero ajudar</a>
+          <a class="botao botao-claro" href="quem-somos.html">Conheça a APAE</a>
+        </p>
+      </div>
     </section>
 
-    <section>
+    <section class="conteiner secao">
       <h2>Próximo evento</h2>
-      <!-- TODO: nome, data e local do próximo evento -->
-
-      <!-- Barra de meta (RF047). <progress> desenha a barra sem JavaScript.
-           O texto ao lado repete os valores para leitores de tela.
-           Use valores FICTÍCIOS até a APAE passar uma meta real. -->
-      <p>
-        <progress value="6500" max="10000">65%</progress>
-        R$ 6.500,00 de R$ 10.000,00 (65%)
-      </p>
+      <article class="evento">
+        <h3>Bazar beneficente</h3>
+        <p class="evento-data">Sábado, 21/11/2026, das 9h às 15h</p>
+        <p>Na sede da APAE. Roupas, calçados e objetos doados pela comunidade, com preços a partir de R$ 2,00.</p>
+        <div class="meta" data-arrecadado="325000" data-meta="500000">
+          <p class="meta-titulo">Meta de arrecadação</p>
+          <progress value="3250" max="5000" aria-label="Arrecadação: Bazar beneficente">65%</progress>
+          <p class="meta-texto">R$ 3.250,00 de R$ 5.000,00 (65%)</p>
+          <p class="meta-falta">Faltam R$ 1.750,00 para a meta.</p>
+        </div>
+        <p><a href="eventos.html">Ver todos os eventos</a></p>
+      </article>
     </section>
 
-    <section>
-      <h2>Como ajudar</h2>
-      <!-- TODO: botão grande para a página "Como ajudar" -->
+    <section class="conteiner secao">
+      <h2>Formas de ajudar</h2>
+      <ul class="lista-ajuda">
+        <li><strong>Doe por Pix.</strong> Qualquer valor ajuda a manter os atendimentos. <a href="como-ajudar.html#pix">Ver a chave Pix</a></li>
+        <li><strong>Seja voluntário.</strong> Ajude nos eventos, no bazar ou na divulgação. <a href="como-ajudar.html#voluntario">Quero ser voluntário</a></li>
+        <li><strong>Venha aos eventos.</strong> Bazares, jantares e festas ajudam a pagar as contas da APAE. <a href="eventos.html">Ver a agenda</a></li>
+      </ul>
     </section>
   </main>
 
-  <!-- footer: rodapé, igual em todas as páginas -->
-  <footer>
-    <p>TODO: endereço e telefone oficiais da APAE</p>
-    <p><a href="privacidade.html">Política de privacidade</a></p>
+  <footer class="rodape">
+    <div class="conteiner">
+      <p><strong>APAE de Estiva Gerbi</strong><br>Estiva Gerbi - SP</p>
+      <p><a href="contato.html">Contato</a> | <a href="privacidade.html">Política de privacidade</a> | <a href="#topo">Voltar ao topo</a></p>
+      <p class="pequeno">Site feito pelo grupo Nuvex no Projeto Integrador da faculdade. Eventos, valores e contatos são exemplos até a APAE aprovar os dados oficiais.</p>
+    </div>
   </footer>
 
-  <!-- defer: o script só roda depois que o HTML foi todo carregado -->
   <script src="js/principal.js" defer></script>
+  <script src="js/eventos.js" defer></script>
 </body>
 </html>
