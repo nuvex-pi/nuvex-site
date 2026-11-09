@@ -34,6 +34,7 @@ Roteiro para testar o site sozinho, no Windows.
 | HTML válido | Cole o código em `validator.w3.org` (opção *Validate by Direct Input*) | Nenhum erro |
 | Teclado | Navegue só com `Tab` e `Enter` | Todo link e botão é alcançado, e o foco aparece |
 | Zoom | `Ctrl` e `+` até 200% | Nada fica sobreposto |
+| Ícone da aba | Abra qualquer página e olhe a aba do navegador | Quadrado azul com "AE", e nenhum erro de `favicon` no Console |
 | Sem JavaScript | `F12` → `Ctrl+Shift+P` → digite *Disable JavaScript* | O site continua legível, com menu aberto, barras de meta e chave Pix. Somem só os botões de letra, o simulador e o formulário |
 
 ## Problemas comuns
