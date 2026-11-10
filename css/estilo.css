@@ -1,19 +1,23 @@
 /* Estilo do site da APAE Estiva Gerbi */
 
+/* cores tiradas do logo da APAE: verde das folhas, amarelo das pétalas e laranja do miolo.
+   O amarelo fica só nos detalhes, porque texto em cima dele fica difícil de ler */
 :root {
-  --azul: #2563eb;
-  --azul-escuro: #1d4ed8;
-  --azul-claro: #eaf2ff;
-  --azul-borda: #bfd4fb;
-  --marinho: #0b1f4d;
-  --fundo: #f4f7fc;
+  --verde: #2e7d32;
+  --verde-escuro: #1b5e20;
+  --verde-claro: #edf5e7;
+  --amarelo: #f5c400;
+  --amarelo-claro: #fff5cc;
+  --amarelo-borda: #e9cc5c;
+  --laranja: #b86e00;
+  --laranja-escuro: #8a5200;
+  --titulo: #183d1b;
+  --fundo: #f7f8f1;
   --branco: #ffffff;
-  --borda: #e2e8f0;
-  --borda-campo: #8a97ab;
-  --texto: #102044;
-  --texto-suave: #46556b;
-  --verde: #027a48;
-  --verde-fundo: #ecfdf3;
+  --borda: #e2e6d8;
+  --borda-campo: #858f7d;
+  --texto: #1e2a1e;
+  --texto-suave: #4a5547;
   --vermelho: #b42318;
   --raio: 16px;
   --sombra: 0 8px 24px rgba(15, 23, 42, 0.05);
@@ -47,7 +51,7 @@ h1,
 h2,
 h3 {
   line-height: 1.25;
-  color: var(--marinho);
+  color: var(--titulo);
 }
 
 h1 {
@@ -66,16 +70,16 @@ h3 {
 }
 
 a {
-  color: var(--azul-escuro);
+  color: var(--verde-escuro);
 }
 
 a:hover {
-  color: var(--marinho);
+  color: var(--titulo);
 }
 
 /* foco do teclado */
 :focus-visible {
-  outline: 3px solid var(--azul);
+  outline: 3px solid var(--verde-escuro);
   outline-offset: 2px;
 }
 
@@ -91,7 +95,7 @@ a:hover {
   z-index: 10;
   padding: 0.5rem 1rem;
   color: #fff;
-  background: var(--marinho);
+  background: var(--titulo);
   border-radius: 8px;
 }
 
@@ -160,7 +164,7 @@ main {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--marinho);
+  color: var(--titulo);
   text-decoration: none;
 }
 
@@ -171,8 +175,8 @@ main {
   width: 2.6rem;
   height: 2.6rem;
   font-weight: bold;
-  color: #fff;
-  background: var(--azul);
+  color: var(--titulo);
+  background: var(--amarelo);
   border-radius: 12px;
 }
 
@@ -214,19 +218,19 @@ main {
   margin-bottom: 0.25rem;
   padding: 0.6rem 0.75rem;
   font-weight: 600;
-  color: var(--marinho);
+  color: var(--titulo);
   text-decoration: none;
   border-radius: 10px;
 }
 
 .menu a:hover {
-  background: var(--azul-claro);
+  background: var(--verde-claro);
 }
 
 /* página atual */
 .menu a[aria-current="page"] {
   color: #fff;
-  background: var(--azul);
+  background: var(--verde);
 }
 
 /* tamanho da letra */
@@ -258,7 +262,7 @@ main {
   font-family: inherit;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--marinho);
+  color: var(--titulo);
   background: var(--branco);
   border: 1px solid var(--borda-campo);
   border-radius: 10px;
@@ -267,7 +271,7 @@ main {
 
 .letra button:hover,
 .botao-menu:hover {
-  background: var(--azul-claro);
+  background: var(--verde-claro);
 }
 
 .letra button:disabled {
@@ -348,9 +352,9 @@ main {
 .banner {
   margin: 0 0 1.5rem;
   padding: 0.9rem 1.25rem;
-  color: var(--marinho);
-  background: var(--azul-claro);
-  border: 1px solid var(--azul-borda);
+  color: var(--titulo);
+  background: var(--amarelo-claro);
+  border: 1px solid var(--amarelo-borda);
   border-radius: 14px;
 }
 
@@ -380,14 +384,14 @@ main {
   text-decoration: none;
   background: var(--branco);
   border: 2px solid var(--borda);
-  border-left: 6px solid var(--azul);
+  border-left: 6px solid var(--amarelo);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
 }
 
 .atalho strong {
   font-size: 1.25rem;
-  color: var(--azul-escuro);
+  color: var(--verde-escuro);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -398,8 +402,8 @@ main {
 
 .atalho:hover {
   color: var(--texto);
-  background: var(--azul-claro);
-  border-color: var(--azul);
+  background: var(--verde-claro);
+  border-color: var(--verde);
 }
 
 /* Botões */
@@ -413,15 +417,15 @@ main {
   font-weight: bold;
   color: #fff;
   text-decoration: none;
-  background: var(--azul);
-  border: 1px solid var(--azul);
+  background: var(--verde);
+  border: 1px solid var(--verde);
   border-radius: 12px;
   cursor: pointer;
 }
 
 .botao:hover {
   color: #fff;
-  background: var(--azul-escuro);
+  background: var(--verde-escuro);
 }
 
 /* Cartões */
@@ -493,19 +497,19 @@ main {
   padding: 0.15rem 0.75rem;
   font-size: 0.9rem;
   font-weight: bold;
-  color: var(--azul-escuro);
-  background: var(--azul-claro);
+  color: var(--laranja-escuro);
+  background: var(--amarelo-claro);
   border-radius: 999px;
 }
 
 .selo-sucesso {
-  color: var(--verde);
-  background: var(--verde-fundo);
+  color: var(--verde-escuro);
+  background: var(--verde-claro);
 }
 
 .selo-neutro {
   color: var(--texto-suave);
-  background: #eef1f6;
+  background: #eef0e8;
 }
 
 /* Eventos e barra de meta */
@@ -513,7 +517,7 @@ main {
 .evento-data {
   margin: 0 0 0.5rem;
   font-weight: bold;
-  color: var(--azul-escuro);
+  color: var(--laranja-escuro);
 }
 
 .meta {
@@ -539,22 +543,23 @@ main {
   -webkit-appearance: none;
   border: 0;
   border-radius: 999px;
-  background: #d5deeb;
+  background: #dfe3d5;
   overflow: hidden;
 }
 
-/* Chrome/Edge usam -webkit e o Firefox usa -moz */
+/* Chrome/Edge usam -webkit e o Firefox usa -moz.
+   Em andamento fica laranja e, quando bate a meta, verde */
 .meta progress::-webkit-progress-bar {
-  background: #d5deeb;
+  background: #dfe3d5;
 }
 
 .meta progress::-webkit-progress-value {
-  background: var(--azul);
+  background: var(--laranja);
   border-radius: 999px;
 }
 
 .meta progress::-moz-progress-bar {
-  background: var(--azul);
+  background: var(--laranja);
   border-radius: 999px;
 }
 
@@ -572,7 +577,7 @@ main {
 
 .meta-atingida .meta-falta {
   font-weight: bold;
-  color: var(--verde);
+  color: var(--verde-escuro);
 }
 
 /* Como ajudar */
@@ -590,7 +595,7 @@ main {
 .aviso {
   margin: 0.5rem 0;
   font-weight: bold;
-  color: var(--verde);
+  color: var(--verde-escuro);
 }
 
 .aviso-erro {
@@ -600,7 +605,7 @@ main {
 .resultado {
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--marinho);
+  color: var(--titulo);
 }
 
 .nota {
@@ -690,7 +695,7 @@ fieldset {
 summary {
   padding: 0.9rem 0;
   font-weight: bold;
-  color: var(--marinho);
+  color: var(--titulo);
   cursor: pointer;
 }
 
