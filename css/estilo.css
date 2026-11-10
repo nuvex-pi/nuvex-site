@@ -1,7 +1,4 @@
-/* Estilo do site da APAE.
-   Layout com barra lateral clara, cartões e banner, em tons de azul.
-   Público com muitos idosos e pessoas que usam pouco a internet:
-   letra grande, bom contraste, nada em maiúsculas e áreas grandes para tocar. */
+/* Estilo do site da APAE Estiva Gerbi */
 
 :root {
   --azul: #2563eb;
@@ -23,7 +20,7 @@
   --largura-lateral: 270px;
 }
 
-/* Sem isso, display: flex/block do CSS ganharia do atributo hidden */
+/* senão o display: flex de alguns elementos ignora o hidden */
 [hidden] {
   display: none !important;
 }
@@ -32,8 +29,7 @@
   box-sizing: border-box;
 }
 
-/* 112,5% = 18px. Os botões "Letra maior" e "Letra menor" mudam esse valor
-   e tudo o que está em rem acompanha */
+/* 112,5% = 18px. Os botões de letra mudam esse valor */
 html {
   font-size: 112.5%;
 }
@@ -77,13 +73,13 @@ a:hover {
   color: var(--marinho);
 }
 
-/* Contorno para quem navega pelo teclado (Tab) */
+/* foco do teclado */
 :focus-visible {
   outline: 3px solid var(--azul);
   outline-offset: 2px;
 }
 
-/* Link "Pular para o conteúdo": fica escondido até receber o foco do teclado */
+/* "Pular para o conteúdo" só aparece com Tab */
 .pular {
   position: absolute;
   left: -9999px;
@@ -99,10 +95,9 @@ a:hover {
   border-radius: 8px;
 }
 
-/* ---------- Estrutura: barra lateral + área principal ---------- */
+/* Estrutura */
 
-/* O fundo branco do lado esquerdo (com a linha da borda) faz a barra lateral
-   "continuar" até o fim da página, mesmo quando o conteúdo é mais comprido que a tela */
+/* fundo branco na esquerda para a barra lateral ir até o fim da página */
 .app {
   display: flex;
   min-height: 100vh;
@@ -121,14 +116,14 @@ a:hover {
   padding: 1.5rem 1rem;
 }
 
-/* Só fica parada na tela se a tela for alta o bastante para mostrar
-   o menu inteiro. Em notebook com tela baixa, ela rola junto com a página,
-   para os botões de letra nunca ficarem escondidos. */
-@media (min-width: 901px) and (min-height: 860px) {
+/* barra parada só em tela alta (com a letra padrão o menu ocupa uns 866px).
+   Com letra maior ela ganha rolagem própria */
+@media (min-width: 901px) and (min-height: 880px) {
   .barra-lateral {
     position: sticky;
     top: 0;
     height: 100vh;
+    overflow-y: auto;
   }
 
   .letra {
@@ -150,7 +145,7 @@ main {
   padding: 2.5rem 2.5rem 3rem;
 }
 
-/* ---------- Barra lateral ---------- */
+/* Barra lateral */
 
 .barra-topo {
   display: flex;
@@ -228,13 +223,13 @@ main {
   background: var(--azul-claro);
 }
 
-/* Página atual: azul cheio, fácil de ver onde a pessoa está */
+/* página atual */
 .menu a[aria-current="page"] {
   color: #fff;
   background: var(--azul);
 }
 
-/* Caixa do tamanho da letra, no pé da barra lateral */
+/* tamanho da letra */
 .letra {
   margin-top: 1.5rem;
   padding: 0.75rem;
@@ -280,7 +275,7 @@ main {
   cursor: default;
 }
 
-/* Ícone de três linhas do botão Menu, feito só com CSS */
+/* ícone de três linhas do Menu */
 .icone-menu {
   display: inline-block;
   width: 1.1rem;
@@ -291,9 +286,8 @@ main {
   box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
 }
 
-/* Telas menores: a barra lateral vira uma barra no topo,
-   e o menu abre e fecha no botão "Menu".
-   A classe .js só existe se o JavaScript rodou; sem JS o menu fica sempre aberto. */
+/* Celular e tablet: a barra lateral vai para o topo e o menu abre no botão.
+   .js vem do principal.js, então sem JS o menu fica aberto */
 @media (max-width: 900px) {
   .app {
     flex-direction: column;
@@ -342,7 +336,7 @@ main {
   }
 }
 
-/* ---------- Topo das páginas ---------- */
+/* Topo das páginas */
 
 .resumo {
   max-width: 760px;
@@ -351,7 +345,6 @@ main {
   color: var(--texto-suave);
 }
 
-/* Banner informativo (aviso de site em construção) */
 .banner {
   margin: 0 0 1.5rem;
   padding: 0.9rem 1.25rem;
@@ -361,7 +354,7 @@ main {
   border-radius: 14px;
 }
 
-/* ---------- Atalhos da página inicial ---------- */
+/* Atalhos da página inicial */
 
 .atalhos {
   display: grid;
@@ -409,7 +402,7 @@ main {
   border-color: var(--azul);
 }
 
-/* ---------- Botões ---------- */
+/* Botões */
 
 .botao {
   display: inline-block;
@@ -431,7 +424,7 @@ main {
   background: var(--azul-escuro);
 }
 
-/* ---------- Cartões ---------- */
+/* Cartões */
 
 .cartao {
   margin-bottom: 1.25rem;
@@ -468,9 +461,10 @@ main {
   margin: 0;
 }
 
+/* min() deixa a coluna encolher no celular, senão aparece rolagem lateral */
 .grade {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
   gap: 1.25rem;
 }
 
@@ -480,7 +474,7 @@ main {
 
 .duas-colunas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
   gap: 0 1.25rem;
   align-items: start;
 }
@@ -493,7 +487,7 @@ main {
   margin-top: 1.5rem;
 }
 
-/* Selos de situação: só para estados (recebendo doações, meta atingida, em breve) */
+/* selos dos eventos */
 .selo {
   display: inline-block;
   padding: 0.15rem 0.75rem;
@@ -514,7 +508,7 @@ main {
   background: #eef1f6;
 }
 
-/* ---------- Eventos e barra de meta ---------- */
+/* Eventos e barra de meta */
 
 .evento-data {
   margin: 0 0 0.5rem;
@@ -549,7 +543,7 @@ main {
   overflow: hidden;
 }
 
-/* A barra precisa de regras separadas para Chrome/Edge (webkit) e Firefox (moz) */
+/* Chrome/Edge usam -webkit e o Firefox usa -moz */
 .meta progress::-webkit-progress-bar {
   background: #d5deeb;
 }
@@ -581,7 +575,7 @@ main {
   color: var(--verde);
 }
 
-/* ---------- Como ajudar ---------- */
+/* Como ajudar */
 
 .chave {
   display: inline-block;
@@ -613,7 +607,7 @@ main {
   color: var(--texto-suave);
 }
 
-/* ---------- Formulários ---------- */
+/* Formulários */
 
 .formulario {
   display: grid;
@@ -650,7 +644,7 @@ fieldset {
   border-radius: 10px;
 }
 
-/* Caixas de marcar grandes e com o texto clicável */
+/* caixas de marcar maiores */
 .campo .opcao {
   display: flex;
   align-items: center;
@@ -679,7 +673,7 @@ fieldset {
   display: none;
 }
 
-/* ---------- Perguntas frequentes ---------- */
+/* Perguntas frequentes */
 
 .lista-perguntas {
   padding: 0.5rem 1.5rem;
@@ -704,7 +698,7 @@ details p {
   margin: 0 0 1rem;
 }
 
-/* ---------- Contato ---------- */
+/* Contato */
 
 .contatos dt {
   margin-top: 0.75rem;
@@ -715,7 +709,7 @@ details p {
   margin: 0;
 }
 
-/* ---------- Rodapé ---------- */
+/* Rodapé */
 
 .rodape {
   padding: 1.25rem 2.5rem;

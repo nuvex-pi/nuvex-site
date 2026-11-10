@@ -4,42 +4,44 @@ Roteiro para testar o site sozinho, no Windows.
 
 ## Abrir o site
 
-- **Mais simples:** dois cliques no `index.html`.
-- **Recomendado:** VS Code com a extensão **Live Server** → clique em *Go Live* no rodapé. A página recarrega sozinha quando você salva.
-  - O botão "Copiar chave Pix" só aparece em `https://` ou no próprio computador (Live Server ou arquivo aberto direto). Isso é do navegador, não é erro.
+- Mais simples: dois cliques no `index.html`.
+- Melhor: no VS Code, com a extensão Live Server, clique em Go Live no rodapé. A página recarrega sozinha quando você salva.
+- O botão "Copiar chave Pix" só aparece em `https://` ou no próprio computador (Live Server ou arquivo aberto direto). Isso é do navegador, não é erro.
 
 ## Funcionalidades em JavaScript
 
 | Página | Teste | O que esperar |
 |--------|-------|---------------|
-| Todas | Clique em **Letra maior** e **Letra menor** (no pé da barra lateral; no celular, dentro do Menu) | A letra aumenta e diminui. Ao trocar de página, o tamanho escolhido continua |
-| Todas | Janela baixa (menos de 860 px de altura) | A barra lateral rola junto com a página e os botões de letra continuam alcançáveis |
-| Todas | Janela estreita (`Ctrl+Shift+M` no F12) → botão **Menu** | A barra lateral vira uma barra no topo, e o menu abre e fecha |
+| Todas | Clique em Letra maior e Letra menor (no pé da barra lateral; no celular, dentro do Menu) | A letra aumenta e diminui. Ao trocar de página, o tamanho escolhido continua |
+| Todas | Janela baixa (menos de 880 px de altura) | A barra lateral rola junto com a página e os botões de letra continuam alcançáveis |
+| Todas | Janela alta (ex.: 1280 x 900 no `Ctrl+Shift+M` do F12). Clique em Letra maior até o limite e depois em Letra menor até o limite | O botão clicado continua na tela. Se o menu passar da altura da tela, a própria barra lateral rola |
+| Todas | Janela estreita (`Ctrl+Shift+M` no F12), botão Menu | A barra lateral vira uma barra no topo, e o menu abre e fecha |
 | Início e Eventos | Mude `data-arrecadado` de um evento no HTML e recarregue | A barra, o texto e o "Faltam R$ ..." mudam juntos |
 | Eventos | Festa junina (arrecadou mais que a meta) | Barra cheia e verde, "Meta atingida!" |
-| Como ajudar | **Copiar chave Pix** | Aparece "Chave copiada!" e a chave cola no Bloco de Notas |
+| Como ajudar | Copiar chave Pix | Aparece "Chave copiada!" e a chave cola no Bloco de Notas |
 | Como ajudar | Simulador com `20`, `20,50`, `1.500,00` | Mostra o valor por mês e o total do ano |
 | Como ajudar | Simulador vazio, com `0`, `-5` ou `abc` | Mensagem de erro em vermelho e o cursor volta para o campo |
 | Como ajudar | Voluntário: enviar tudo vazio | Três mensagens de erro e o cursor vai para "Seu nome" |
-| Como ajudar | Voluntário preenchido → Enviar | Pergunta se pode abrir o WhatsApp; ao confirmar, abre com a mensagem pronta |
-| Como ajudar e Contato | Link "Falar no WhatsApp" → **Cancelar** | Continua no site |
+| Como ajudar | Voluntário preenchido e Enviar | Pergunta se pode abrir o WhatsApp; ao confirmar, abre com a mensagem pronta |
+| Como ajudar e Contato | Link "Falar no WhatsApp" e Cancelar | Continua no site |
 
 ## O que conferir
 
 | Teste | Como fazer | O que esperar |
 |-------|------------|---------------|
-| Erros de JavaScript | Chrome → `F12` → aba **Console** | Nenhuma mensagem em vermelho |
-| Celular | `F12` → `Ctrl+Shift+M` → escolha um celular pequeno | Nada cortado nem com rolagem lateral |
-| Acessibilidade | `F12` → aba **Lighthouse** → marque *Acessibilidade* → *Analisar* | Nota 90 ou mais |
-| HTML válido | Cole o código em `validator.w3.org` (opção *Validate by Direct Input*) | Nenhum erro |
+| Erros de JavaScript | No Chrome, `F12`, aba Console | Nenhuma mensagem em vermelho |
+| Celular | `F12`, `Ctrl+Shift+M` e escolha um celular pequeno | Nada cortado nem com rolagem lateral |
+| Rolagem lateral | No celular (375 px), use Letra maior até o limite, abra Como ajudar, Contato e Quem somos e rode no Console: `document.documentElement.scrollWidth - document.documentElement.clientWidth` | O resultado é `0` |
+| Acessibilidade | `F12`, aba Lighthouse, marque Acessibilidade e clique em Analisar | Nota 90 ou mais |
+| HTML válido | Cole o código em `validator.w3.org` (opção Validate by Direct Input) | Nenhum erro |
 | Teclado | Navegue só com `Tab` e `Enter` | Todo link e botão é alcançado, e o foco aparece |
 | Zoom | `Ctrl` e `+` até 200% | Nada fica sobreposto |
 | Ícone da aba | Abra qualquer página e olhe a aba do navegador | Quadrado azul com "AE", e nenhum erro de `favicon` no Console |
-| Sem JavaScript | `F12` → `Ctrl+Shift+P` → digite *Disable JavaScript* | O site continua legível, com menu aberto, barras de meta e chave Pix. Somem só os botões de letra, o simulador e o formulário |
+| Sem JavaScript | `F12`, `Ctrl+Shift+P`, digite Disable JavaScript | O site continua legível, com menu aberto, barras de meta e chave Pix. Somem só os botões de letra, o simulador e o formulário |
 
 ## Problemas comuns
 
-- **O CSS não aplicou:** confira o caminho no `<link href="css/estilo.css">` e se o arquivo foi salvo.
-- **O script não roda:** veja o Console; confira o caminho no `<script src="js/...">`. O `principal.js` precisa vir antes dos outros, porque eles usam a função `formatarReais` dele.
-- **Acentos estranhos (ex.: "Ã©"):** o arquivo precisa estar salvo em UTF-8 (no VS Code, canto inferior direito).
-- **A letra ficou enorme e não volta:** clique em "Letra menor" algumas vezes, ou limpe os dados do site (`F12` → *Application* → *Local storage*).
+- O CSS não aplicou: confira o caminho no `<link href="css/estilo.css">` e se o arquivo foi salvo.
+- O script não roda: veja o Console e confira o caminho no `<script src="js/...">`. O `principal.js` precisa vir antes dos outros, porque eles usam a função `formatarReais` dele.
+- Acentos estranhos (ex.: "Ã©"): o arquivo precisa estar salvo em UTF-8 (no VS Code, canto inferior direito).
+- A letra ficou enorme e não volta: clique em "Letra menor" algumas vezes ou limpe os dados do site (`F12`, Application, Local storage).

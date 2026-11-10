@@ -1,19 +1,15 @@
-// Página "Como ajudar": botão de copiar a chave Pix e simulador de doação.
-
-// ---------- Copiar a chave Pix ----------
+// Como ajudar: copiar a chave Pix e simulador de doação
 
 const botaoCopiar = document.getElementById('copiar-pix');
 const avisoPix = document.getElementById('aviso-pix');
 
-// navigator.clipboard só existe em sites com HTTPS (ou no próprio computador).
-// Sem ele o botão continua escondido e a pessoa copia a chave à mão.
+// o clipboard só funciona com https ou no localhost. Sem ele o botão nem aparece
 if (navigator.clipboard) {
   botaoCopiar.hidden = false;
 
   botaoCopiar.addEventListener('click', function () {
     const chave = document.getElementById('chave-pix').textContent.trim();
 
-    // writeText devolve uma Promise: o then roda quando a cópia termina
     navigator.clipboard.writeText(chave)
       .then(function () {
         avisoPix.textContent = 'Chave copiada! Agora cole no aplicativo do seu banco.';
@@ -21,12 +17,12 @@ if (navigator.clipboard) {
       })
       .catch(function () {
         avisoPix.textContent = 'Não foi possível copiar. Selecione a chave e copie à mão.';
-        avisoPix.classList.add('aviso-erro'); // erro em vermelho, não em verde
+        avisoPix.classList.add('aviso-erro');
       });
   });
 }
 
-// ---------- Simulador "Quanto a sua doação ajuda?" ----------
+// Simulador
 
 const formSimulador = document.getElementById('form-simulador');
 const campoValor = document.getElementById('valor-mensal');
@@ -35,16 +31,15 @@ const resultado = document.getElementById('resultado-simulador');
 
 document.getElementById('simulador').hidden = false;
 
-// Converte o texto digitado ("20", "20,50", "20.50" ou "1.500,00") para centavos.
-// Devolve null se não for um valor válido.
+// "20", "20,50", "20.50" ou "1.500,00" -> centavos. Retorna null se não for número
 function lerCentavos(texto) {
   let limpo = texto.trim().replace('R$', '').trim();
 
   if (limpo.includes(',')) {
-    // jeito brasileiro: ponto separa milhar e vírgula separa os centavos
+    // ponto de milhar e vírgula nos centavos
     limpo = limpo.replaceAll('.', '').replace(',', '.');
   } else if (!/^\d+\.\d{1,2}$/.test(limpo)) {
-    // "1.500" é mil e quinhentos; só "20.5" ou "20.50" contam como centavos
+    // "1.500" é mil e quinhentos, não 1,5
     limpo = limpo.replaceAll('.', '');
   }
 
@@ -55,7 +50,7 @@ function lerCentavos(texto) {
 }
 
 formSimulador.addEventListener('submit', function (evento) {
-  evento.preventDefault(); // não recarrega a página
+  evento.preventDefault();
 
   const centavos = lerCentavos(campoValor.value);
   resultado.textContent = '';

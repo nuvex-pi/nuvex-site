@@ -1,7 +1,4 @@
-// Barra de meta dos eventos.
-// O HTML já vem com a barra e o texto escritos (funciona sem JS).
-// Aqui o JS refaz a conta a partir do data-arrecadado e do data-meta (em centavos),
-// então para atualizar um evento basta mudar esses dois números no HTML.
+// Barra de meta dos eventos. A conta usa o data-arrecadado e o data-meta do HTML (em centavos)
 
 const metas = document.querySelectorAll('.meta');
 
@@ -9,12 +6,12 @@ for (const meta of metas) {
   const arrecadado = Number(meta.dataset.arrecadado);
   const objetivo = Number(meta.dataset.meta);
 
-  // Se algum número estiver errado no HTML, deixa o texto que já está lá
+  // número errado no HTML: deixa o texto que já está na página
   if (!(arrecadado >= 0) || !(objetivo > 0)) {
     continue;
   }
 
-  // Math.floor para 99,9% não aparecer como 100% antes da hora
+  // floor para 99,9% não virar 100%
   const porcentagem = Math.floor((arrecadado / objetivo) * 100);
 
   const barra = meta.querySelector('progress');

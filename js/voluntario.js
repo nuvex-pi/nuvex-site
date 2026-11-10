@@ -1,9 +1,7 @@
 // Formulário de voluntário: confere os campos e abre o WhatsApp com a mensagem pronta.
-// Nada é salvo nem enviado pelo site (LGPD). A mensagem só chega à APAE
-// se a própria pessoa tocar em "Enviar" no WhatsApp.
+// O site não salva nem envia nada
 
-// TODO: número oficial da APAE, só com números (ex.: 5519...). Enquanto estiver vazio,
-// o WhatsApp pede para a pessoa escolher para quem mandar.
+// TODO: número oficial da APAE, só números (ex.: 5519...). Vazio, o WhatsApp pede o contato
 const whatsappApae = '';
 
 const formVoluntario = document.getElementById('form-voluntario');
@@ -11,10 +9,9 @@ const campoNome = document.getElementById('nome');
 const campoArea = document.getElementById('area');
 const campoMensagem = document.getElementById('mensagem');
 
-// Sem JS o formulário fica escondido: se fosse enviado, o nome iria parar na URL
+// o form começa escondido: sem JS ele mandaria o nome pela URL
 formVoluntario.hidden = false;
 
-// Mostra ou apaga a mensagem de erro de um campo
 function marcarErro(idErro, campo, mensagem) {
   document.getElementById(idErro).textContent = mensagem;
   if (campo) {
@@ -59,7 +56,6 @@ formVoluntario.addEventListener('submit', function (evento) {
     marcarErro('erro-periodo', null, '');
   }
 
-  // Leva o foco para o primeiro campo com problema
   if (primeiroErro) {
     primeiroErro.focus();
     return;
@@ -74,7 +70,6 @@ formVoluntario.addEventListener('submit', function (evento) {
     texto += '\n' + mensagem;
   }
 
-  // encodeURIComponent troca espaços, acentos e quebras de linha por códigos que podem ir no link
   const link = 'https://wa.me/' + whatsappApae + '?text=' + encodeURIComponent(texto);
 
   if (confirm('O WhatsApp vai abrir com a sua mensagem pronta. Ela só é enviada se você tocar em "Enviar". Deseja continuar?')) {
