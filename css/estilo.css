@@ -9,8 +9,7 @@
   --amarelo: #f5c400;
   --amarelo-claro: #fff5cc;
   --amarelo-borda: #e9cc5c;
-  --laranja: #b86e00;
-  --laranja-escuro: #8a5200;
+  --laranja: #8a5200;
   --titulo: #183d1b;
   --fundo: #f7f8f1;
   --branco: #ffffff;
@@ -497,7 +496,7 @@ main {
   padding: 0.15rem 0.75rem;
   font-size: 0.9rem;
   font-weight: bold;
-  color: var(--laranja-escuro);
+  color: var(--laranja);
   background: var(--amarelo-claro);
   border-radius: 999px;
 }
@@ -517,7 +516,7 @@ main {
 .evento-data {
   margin: 0 0 0.5rem;
   font-weight: bold;
-  color: var(--laranja-escuro);
+  color: var(--laranja);
 }
 
 .meta {
@@ -547,28 +546,19 @@ main {
   overflow: hidden;
 }
 
-/* Chrome/Edge usam -webkit e o Firefox usa -moz.
-   Em andamento fica laranja e, quando bate a meta, verde */
+/* Chrome/Edge usam -webkit e o Firefox usa -moz */
 .meta progress::-webkit-progress-bar {
   background: #dfe3d5;
 }
 
 .meta progress::-webkit-progress-value {
-  background: var(--laranja);
+  background: var(--verde);
   border-radius: 999px;
 }
 
 .meta progress::-moz-progress-bar {
-  background: var(--laranja);
+  background: var(--verde);
   border-radius: 999px;
-}
-
-.meta-atingida progress::-webkit-progress-value {
-  background: var(--verde);
-}
-
-.meta-atingida progress::-moz-progress-bar {
-  background: var(--verde);
 }
 
 .meta-falta {
